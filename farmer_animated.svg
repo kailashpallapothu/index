@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#082D22" />
+      <stop offset="50%" stop-color="#125E43" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <linearGradient id="hillGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E676" />
+      <stop offset="100%" stop-color="#0E362A" />
+    </linearGradient>
+
+    <linearGradient id="laserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(0, 255, 102, 0.8)" />
+      <stop offset="100%" stop-color="rgba(0, 255, 102, 0)" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* Keyframe Animations inside SVG */
+    @keyframes moveClouds {
+      0% { transform: translateX(-50px); }
+      50% { transform: translateX(30px); }
+      100% { transform: translateX(-50px); }
+    }
+
+    @keyframes droneHover {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes scanBeam {
+      0% { opacity: 0.2; transform: scaleY(0.6); }
+      50% { opacity: 0.9; transform: scaleY(1.1); }
+      100% { opacity: 0.2; transform: scaleY(0.6); }
+    }
+
+    @keyframes pulseNode {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.3); opacity: 1; filter: drop-shadow(0 0 10px #00FF66); }
+    }
+
+    @keyframes swayLeaf {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(8deg); }
+    }
+
+    .cloud { animation: moveClouds 12s ease-in-out infinite; }
+    .drone { animation: droneHover 3s ease-in-out infinite; }
+    .laser { animation: scanBeam 2s ease-in-out infinite; transform-origin: top center; }
+    .tech-node { animation: pulseNode 2.5s ease-in-out infinite; }
+    .sway-item { animation: swayLeaf 4s ease-in-out infinite; transform-origin: bottom center; }
+  </style>
+
+  <!-- Sky Background -->
+  <rect width="500" height="500" rx="30" fill="url(#skyGrad)" />
+
+  <!-- Animated Clouds -->
+  <g class="cloud" opacity="0.35">
+    <circle cx="90" cy="80" r="35" fill="#FFFFFF" />
+    <circle cx="130" cy="70" r="45" fill="#FFFFFF" />
+    <circle cx="170" cy="85" r="30" fill="#FFFFFF" />
+    <circle cx="360" cy="110" r="40" fill="#FFFFFF" />
+    <circle cx="410" cy="95" r="50" fill="#FFFFFF" />
+  </g>
+
+  <!-- Rolling Farm Hills -->
+  <path d="M-20 320 Q120 250 260 310 T520 280 L520 520 L-20 520 Z" fill="#0E362A" opacity="0.9" />
+  <path d="M-20 370 Q160 300 320 360 T520 340 L520 520 L-20 520 Z" fill="url(#hillGrad)" opacity="0.85" />
+
+  <!-- Crop Rows Pattern -->
+  <g stroke="#00FF66" stroke-width="2" opacity="0.4">
+    <line x1="80" y1="420" x2="20" y2="500" />
+    <line x1="160" y1="400" x2="120" y2="500" />
+    <line x1="240" y1="390" x2="220" y2="500" />
+    <line x1="320" y1="400" x2="330" y2="500" />
+    <line x1="400" y1="420" x2="440" y2="500" />
+  </g>
+
+  <!-- Animated AI Drone -->
+  <g class="drone">
+    <!-- Drone Beam Scan -->
+    <polygon points="250,110 120,380 380,380" fill="url(#laserGrad)" class="laser" />
+
+    <!-- Drone Body -->
+    <g transform="translate(250, 100)">
+      <!-- Propellers -->
+      <ellipse cx="-45" cy="-12" rx="22" ry="4" fill="#00FF66" opacity="0.8" />
+      <ellipse cx="45" cy="-12" rx="22" ry="4" fill="#00FF66" opacity="0.8" />
+      
+      <!-- Frame Arms -->
+      <line x1="-40" y1="-10" x2="40" y2="10" stroke="#FFFFFF" stroke-width="4" />
+      <line x1="40" y1="-10" x2="-40" y2="10" stroke="#FFFFFF" stroke-width="4" />
+
+      <!-- Center Drone Pod -->
+      <circle cx="0" cy="0" r="18" fill="#082D22" stroke="#00E676" stroke-width="3" filter="url(#glow)" />
+      <circle cx="0" cy="0" r="8" fill="#00FF66" />
+      
+      <!-- Drone Status Sensor Lights -->
+      <circle cx="-12" cy="0" r="3" fill="#EF4444" />
+      <circle cx="12" cy="0" r="3" fill="#00FF66" />
+    </g>
+  </g>
+
+  <!-- Animated Tech Nodes & Crop Scanners -->
+  <g>
+    <circle cx="160" cy="380" r="8" fill="#00FF66" class="tech-node" />
+    <circle cx="340" cy="390" r="8" fill="#00FF66" class="tech-node" />
+    <circle cx="250" cy="430" r="10" fill="#00E676" class="tech-node" />
+  </g>
+
+  <!-- 3D Farmer Silhouette / Avatar Character with Glowing Tablet -->
+  <g transform="translate(200, 240)">
+    <!-- Farmer Body -->
+    <path d="M25 150 C25 100, 75 100, 75 150 Z" fill="#082D22" />
+    <rect x="35" y="110" width="30" height="40" rx="8" fill="#125E43" />
+    
+    <!-- Farmer Turban / Hat -->
+    <circle cx="50" cy="85" r="18" fill="#00E676" />
+    <ellipse cx="50" cy="78" rx="22" ry="10" fill="#10B981" />
+    
+    <!-- Face -->
+    <circle cx="50" cy="92" r="10" fill="#F4C430" />
+
+    <!-- Glowing Tablet in Hand -->
+    <rect x="58" y="115" width="22" height="30" rx="4" fill="#082D22" stroke="#00FF66" stroke-width="2" filter="url(#glow)" />
+    <rect x="61" y="118" width="16" height="24" rx="2" fill="#00FF66" opacity="0.9" />
+  </g>
+
+  <!-- Animated Swaying Plants & Leaf Elements -->
+  <g class="sway-item">
+    <!-- Left Plant -->
+    <path d="M90 440 Q80 370 60 340" stroke="#00E676" stroke-width="5" fill="none" />
+    <path d="M60 340 Q30 350 40 370 Q70 380 90 440" fill="#00FF66" opacity="0.85" />
+    
+    <!-- Right Plant -->
+    <path d="M410 440 Q420 370 440 340" stroke="#00E676" stroke-width="5" fill="none" />
+    <path d="M440 340 Q470 350 460 370 Q430 380 410 440" fill="#00FF66" opacity="0.85" />
+  </g>
+
+  <!-- Title Badge inside SVG -->
+  <rect x="150" y="445" width="200" height="36" rx="18" fill="rgba(8, 45, 34, 0.9)" stroke="#00FF66" stroke-width="1.5" />
+  <text x="250" y="468" font-family="'Outfit', sans-serif" font-size="14" font-weight="bold" fill="#00FF66" text-anchor="middle">
+    🤖 AI Drone Field Scanner
+  </text>
+</svg>

@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Nature Gradients -->
+    <linearGradient id="skySunrise" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B" />
+      <stop offset="35%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#082D22" />
+    </linearGradient>
+
+    <linearGradient id="fieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E676" />
+      <stop offset="60%" stop-color="#125E43" />
+      <stop offset="100%" stop-color="#0E362A" />
+    </linearGradient>
+
+    <linearGradient id="haloRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00FF66" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+
+    <filter id="glowEffect" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* CSS Animations for Farmer Photo */
+    @keyframes farmerBreath {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-6px) scale(1.015); }
+    }
+
+    @keyframes rotateHalo {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes sunRayPulse {
+      0%, 100% { opacity: 0.25; transform: scale(1); }
+      50% { opacity: 0.65; transform: scale(1.1); }
+    }
+
+    @keyframes swayWheat {
+      0%, 100% { transform: rotate(-6deg); }
+      50% { transform: rotate(8deg); }
+    }
+
+    @keyframes floatParticle {
+      0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+      20% { opacity: 0.8; }
+      80% { opacity: 0.8; }
+      100% { transform: translate(60px, -120px) rotate(180deg); opacity: 0; }
+    }
+
+    @keyframes waveHand {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(10deg); }
+      75% { transform: rotate(-5deg); }
+    }
+
+    .farmer-character { animation: farmerBreath 4s ease-in-out infinite; transform-origin: bottom center; }
+    .halo-ring { animation: rotateHalo 15s linear infinite; transform-origin: 300px 220px; }
+    .sun-rays { animation: sunRayPulse 5s ease-in-out infinite; transform-origin: 300px 150px; }
+    .wheat-left { animation: swayWheat 3.5s ease-in-out infinite; transform-origin: bottom left; }
+    .wheat-right { animation: swayWheat 4.2s ease-in-out infinite; transform-origin: bottom right; }
+    .p1 { animation: floatParticle 6s ease-in-out infinite; }
+    .p2 { animation: floatParticle 8s ease-in-out 2s infinite; }
+    .p3 { animation: floatParticle 7s ease-in-out 4s infinite; }
+    .hand-wave { animation: waveHand 3s ease-in-out infinite; transform-origin: 220px 380px; }
+  </style>
+
+  <!-- Background Sky & Sunrise Rays -->
+  <rect width="600" height="600" rx="36" fill="url(#skySunrise)" />
+
+  <!-- Animated Sun Rays Effect -->
+  <g class="sun-rays" opacity="0.4">
+    <polygon points="300,150 -50,-50 50,-50" fill="#FFE082" />
+    <polygon points="300,150 550,-50 650,-50" fill="#FFE082" />
+    <polygon points="300,150 -100,200 -100,300" fill="#FFE082" />
+    <polygon points="300,150 700,200 700,300" fill="#FFE082" />
+  </g>
+
+  <!-- Lush Green Crop Fields -->
+  <path d="M-50 400 Q150 320 350 380 T650 360 L650 650 L-50 650 Z" fill="url(#fieldGrad)" opacity="0.95" />
+
+  <!-- Animated Swaying Wheat & Paddy Crops in Foreground -->
+  <g class="wheat-left">
+    <path d="M40 600 Q60 450 100 380" stroke="#F59E0B" stroke-width="6" fill="none" />
+    <circle cx="100" cy="380" r="10" fill="#F59E0B" />
+    <circle cx="90" cy="400" r="8" fill="#F4C430" />
+    <circle cx="80" cy="420" r="8" fill="#F59E0B" />
+    
+    <path d="M90 600 Q120 440 160 360" stroke="#00E676" stroke-width="6" fill="none" />
+    <path d="M160 360 Q180 370 170 390 Q140 400 120 440" fill="#00FF66" opacity="0.9" />
+  </g>
+
+  <g class="wheat-right">
+    <path d="M560 600 Q540 450 500 380" stroke="#F59E0B" stroke-width="6" fill="none" />
+    <circle cx="500" cy="380" r="10" fill="#F59E0B" />
+    <circle cx="510" cy="400" r="8" fill="#F4C430" />
+    
+    <path d="M510 600 Q480 440 440 360" stroke="#00E676" stroke-width="6" fill="none" />
+    <path d="M440 360 Q420 370 430 390 Q460 400 480 440" fill="#00FF66" opacity="0.9" />
+  </g>
+
+  <!-- Animated Glowing Holographic Tech Ring behind Farmer -->
+  <circle cx="300" cy="220" r="130" stroke="url(#haloRing)" stroke-width="4" stroke-dasharray="16 10" fill="none" class="halo-ring" filter="url(#glowEffect)" opacity="0.8" />
+
+  <!-- ANIMATED FARMER CHARACTER -->
+  <g class="farmer-character">
+    <!-- Body & Vest -->
+    <path d="M160 600 C160 380, 440 380, 440 600 Z" fill="#082D22" />
+    <path d="M210 400 L390 400 L420 600 L180 600 Z" fill="#125E43" />
+    <!-- Traditional Vest Buttons -->
+    <circle cx="300" cy="450" r="6" fill="#00FF66" />
+    <circle cx="300" cy="490" r="6" fill="#00FF66" />
+    <circle cx="300" cy="530" r="6" fill="#00FF66" />
+
+    <!-- Neck / Collar -->
+    <path d="M260 380 L340 380 L320 410 L280 410 Z" fill="#F4C430" />
+
+    <!-- Farmer Head & Facial Features -->
+    <circle cx="300" cy="280" r="65" fill="#D97706" /> <!-- Warm skin tone -->
+    <circle cx="300" cy="275" r="60" fill="#F59E0B" />
+
+    <!-- Farmer Turban (Pagaa) -->
+    <g>
+      <ellipse cx="300" cy="225" rx="80" ry="40" fill="#10B981" filter="url(#glowEffect)" />
+      <path d="M220 225 C250 170, 350 170, 380 225 C350 245, 250 245, 220 225 Z" fill="#00E676" />
+      <circle cx="300" cy="210" r="14" fill="#00FF66" />
+    </g>
+
+    <!-- Eyes (Friendly Expression) -->
+    <ellipse cx="275" cy="270" rx="8" ry="6" fill="#082D22" />
+    <ellipse cx="325" cy="270" rx="8" ry="6" fill="#082D22" />
+    <circle cx="277" cy="268" r="3" fill="#FFFFFF" />
+    <circle cx="327" cy="268" r="3" fill="#FFFFFF" />
+
+    <!-- Eyebrows -->
+    <path d="M263 258 Q275 250 287 258" stroke="#082D22" stroke-width="4" fill="none" stroke-linecap="round" />
+    <path d="M313 258 Q325 250 337 258" stroke="#082D22" stroke-width="4" fill="none" stroke-linecap="round" />
+
+    <!-- Mustache & Warm Smile -->
+    <path d="M255 300 Q300 325 345 300 Q300 290 255 300 Z" fill="#082D22" />
+    <path d="M275 315 Q300 335 325 315" stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="round" />
+
+    <!-- Waving Hand holding Fresh Crop -->
+    <g class="hand-wave">
+      <path d="M190 420 Q160 380 140 360" stroke="#F59E0B" stroke-width="16" stroke-linecap="round" />
+      <circle cx="135" cy="355" r="14" fill="#F59E0B" />
+      <!-- Paddy Crop sample in hand -->
+      <path d="M135 355 Q100 300 80 270" stroke="#00FF66" stroke-width="4" fill="none" />
+      <circle cx="80" cy="270" r="8" fill="#00FF66" />
+      <circle cx="95" cy="290" r="6" fill="#00FF66" />
+      <circle cx="110" cy="310" r="6" fill="#00FF66" />
+    </g>
+  </g>
+
+  <!-- Animated Floating Leaf Particles -->
+  <g>
+    <path d="M150 300 Q165 280 180 300 Q165 320 150 300 Z" fill="#00FF66" class="p1" />
+    <path d="M380 250 Q395 230 410 250 Q395 270 380 250 Z" fill="#00E676" class="p2" />
+    <path d="M260 180 Q275 160 290 180 Q275 200 260 180 Z" fill="#10B981" class="p3" />
+  </g>
+
+  <!-- Farmer Name Tag Badge inside Photo -->
+  <g transform="translate(180, 520)">
+    <rect width="240" height="46" rx="23" fill="rgba(8, 45, 34, 0.92)" stroke="#00FF66" stroke-width="2" filter="url(#glowEffect)" />
+    <text x="120" y="28" font-family="'Outfit', sans-serif" font-size="16" font-weight="800" fill="#FFFFFF" text-anchor="middle">
+      👨‍🌾 Smart Farmer 🌱
+    </text>
+  </g>
+</svg>

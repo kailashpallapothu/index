@@ -1,0 +1,295 @@
+/* ==========================================================================
+   FARMSAFE AI — CORE DESIGN SYSTEM & STYLES
+   Smart Farming. Safer Crops. Better Harvests.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette — Boosted Vivid Green Highlights */
+    --dark-green: #082D22;
+    --deep-green: #0E362A;
+    --forest-green: #125E43;
+    --emerald-green: #10B981;
+    --accent-green: #00E676;
+    --neon-green: #00FF66;
+    --light-green: #D4F7E2;
+    --soft-green: #EFFBF4;
+    --white: #FFFFFF;
+    --text-dark: #0D261E;
+    --text-muted: #4A685D;
+    --text-light: #98C4B2;
+    --border-color: #D2ECDC;
+    --border-highlight: rgba(0, 230, 118, 0.4);
+    --card-bg: #FFFFFF;
+    --bg-main: #F3F9F5;
+    
+    /* Status Colors */
+    --warning: #F59E0B;
+    --warning-bg: #FEF3C7;
+    --danger: #EF4444;
+    --danger-bg: #FEE2E2;
+    --success: #10B981;
+    --success-bg: #D1FAE5;
+    --info: #3B82F6;
+    --info-bg: #DBEAFE;
+
+    /* Boosted Glows & Glassmorphism */
+    --shadow-sm: 0 4px 12px rgba(8, 45, 34, 0.05);
+    --shadow-md: 0 10px 30px rgba(8, 45, 34, 0.1);
+    --shadow-lg: 0 20px 40px rgba(8, 45, 34, 0.16);
+    --shadow-glow: 0 0 25px rgba(0, 230, 118, 0.45);
+    --shadow-neon: 0 0 15px rgba(0, 255, 102, 0.6);
+    --glass-bg: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(0, 230, 118, 0.25);
+
+    /* Typography & Spacing */
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+a {
+    color: var(--forest-green);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+button {
+    font-family: var(--font-heading);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: var(--transition);
+}
+
+input, select, textarea {
+    font-family: var(--font-body);
+    outline: none;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--soft-green);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A3E3BC;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--forest-green);
+}
+
+/* Highlight Boost Utilities */
+.highlight-glow {
+    box-shadow: var(--shadow-glow) !important;
+    border-color: var(--accent-green) !important;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 0.3px;
+}
+
+.badge-success {
+    background: var(--success-bg);
+    color: #047857;
+    border: 1.5px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-warning {
+    background: var(--warning-bg);
+    color: #B45309;
+    border: 1.5px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-danger {
+    background: var(--danger-bg);
+    color: #B91C1C;
+    border: 1.5px solid rgba(239, 68, 68, 0.3);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #125E43 0%, #10B981 100%);
+    color: var(--white);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+    background: linear-gradient(135deg, #0E362A 0%, #125E43 100%);
+}
+
+.btn-accent {
+    background: linear-gradient(135deg, #00E676 0%, #10B981 100%);
+    color: #082D22;
+    font-weight: 800;
+    box-shadow: 0 4px 16px rgba(0, 230, 118, 0.4);
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 102, 0.6);
+}
+
+.btn-secondary {
+    background: var(--light-green);
+    color: var(--dark-green);
+    border: 1.5px solid #B8E8C9;
+}
+
+.btn-secondary:hover {
+    background: #C5F2D7;
+    transform: translateY(-2px);
+    color: var(--dark-green);
+    border-color: var(--accent-green);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--forest-green);
+    color: var(--forest-green);
+}
+
+.btn-outline:hover {
+    background: var(--light-green);
+    color: var(--dark-green);
+    border-color: var(--accent-green);
+}
+
+/* Modal Overlay Styling */
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(8, 45, 34, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content-box {
+    background: var(--white);
+    border: 2px solid var(--accent-green);
+    border-radius: var(--radius-xl);
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), var(--shadow-glow);
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background: #d64545;
+    box-shadow: 0 4px 14px rgba(232, 93, 93, 0.4);
+}
+
+/* Glassmorphism Card Base */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+/* Keyframe Animations */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+
+@keyframes floatLeaf {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(6deg); }
+}
+
+@keyframes laserScan {
+    0% { top: 0%; opacity: 0.8; }
+    50% { top: 96%; opacity: 1; }
+    100% { top: 0%; opacity: 0.8; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}

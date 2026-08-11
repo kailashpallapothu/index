@@ -1,0 +1,199 @@
+/* ==========================================================================
+   FARMSAFE AI — RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+
+/* Mobile Hamburger Toggle Bar */
+.mobile-top-bar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: var(--dark-green);
+    color: var(--white);
+    padding: 0 16px;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hamburger-btn {
+    background: transparent;
+    color: var(--white);
+    font-size: 1.5rem;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+/* Sidebar Drawer Backdrop on Mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* TABLET (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+    
+    .main-content {
+        margin-left: 220px;
+        max-width: calc(100vw - 220px);
+        padding: 24px 20px;
+    }
+    
+    .preview-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .weather-main-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-card {
+        padding: 28px;
+    }
+    
+    .hero-visual {
+        font-size: 5rem;
+    }
+}
+
+/* MOBILE (max-width: 768px) */
+@media (max-width: 768px) {
+    .mobile-top-bar {
+        display: flex;
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+        width: 270px;
+        z-index: 1001;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        max-width: 100vw;
+        padding: 80px 16px 80px 16px;
+    }
+
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .hero-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 18px;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .stat-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+    }
+
+    .section-container {
+        padding: 20px 14px;
+    }
+
+    .treatment-dual-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .confidence-box {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .chatbot-panel {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 84px;
+    }
+
+    .weather-search-bar {
+        flex-direction: column;
+    }
+}
+
+/* SMALL MOBILE (max-width: 480px) */
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sample-presets-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
